@@ -7,15 +7,21 @@ public class FurnitureOrder implements FurnitureOrderInterface {
      * TODO: Create a map of Furniture items to order quantities
      */
 
+    private final HashMap<Furniture,Integer> mapFurnitures;
+    
     /**
      * Initialize a new mapping of Furniture types to order quantities.
      */
     FurnitureOrder() {
-        // TODO: Complete the constructor
+       mapFurnitures = new HashMap<Furniture,Integer>();
     }
 
     public void addToOrder(final Furniture type, final int furnitureCount) {
-        // TODO: Complete the method
+        Integer count = 0;
+        if(mapFurnitures.containsKey(type)){
+              count =  mapFurnitures.get(type);
+        }
+        mapFurnitures.put(type,count + furnitureCount);
     }
 
     public HashMap<Furniture, Integer> getOrderedFurniture() {
